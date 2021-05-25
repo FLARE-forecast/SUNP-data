@@ -1,0 +1,8 @@
+Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
+Wind Direction              360     1:35am     1/1/19          1     8:39am     1/1/19        270
+Wind Speed                   38     9:02am    1/20/19          0    12:00am     1/1/19          2
+Wind Gust                    38     9:02am    1/20/19          0    12:00am     1/1/19          7
+Humidity                     98     9:02am     1/1/19         28     1:32pm    1/22/19         76
+Out Temp                   52.6    12:46pm    1/24/19       -6.5     7:23am    1/14/19       18.7
+Raw Barometer             30.56     5:48pm    1/22/19      29.17     4:30pm    1/24/19      29.97
+Total Rain                 2.87     8:14pm    1/24/19       0.00    12:00am     1/1/19       1.17

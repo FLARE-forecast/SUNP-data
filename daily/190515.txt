@@ -1,0 +1,4 @@
+5/15/19
+Time         Wind Dir   Wind Spd  Wind Gust   Humidity       Temp  Raw Barom   Tot Rain
+                    °        mph        mph          %         °F         in         in
+11:30pm             0          0          0         92       46.0      29.75      10.35

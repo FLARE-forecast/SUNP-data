@@ -1,0 +1,8 @@
+Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
+Wind Direction              360    11:01am     5/6/21          1    11:38am     5/6/21        270
+Wind Speed                   21    11:08am     5/6/21          0     8:30pm     5/1/21          2
+Wind Gust                    21     5:00pm     5/2/21          0     5:00am     5/2/21          6
+Humidity                     97     9:30pm     5/5/21         16     3:08pm    5/15/21         62
+Out Temp                   76.9     4:51pm    5/15/21       31.4     5:51am     5/7/21       51.4
+Raw Barometer             30.22     7:42am    5/17/21      29.42    12:00am     5/1/21      29.88
+Total Rain                 0.00    12:00am     5/1/21       0.00    12:00am     5/1/21       0.00

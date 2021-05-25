@@ -1,0 +1,8 @@
+Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
+Wind Direction              360     5:09pm     4/7/20          1     2:49pm     4/8/20        270
+Wind Speed                   33    11:53pm    4/13/20          0     3:14pm     4/7/20          3
+Wind Gust                    33    11:53pm    4/13/20          0     5:30pm     4/7/20          9
+Humidity                     97     8:48am    4/13/20         18     4:00pm    4/23/20         64
+Out Temp                   64.3     5:00pm    4/25/20       25.1     5:00am    4/19/20       40.4
+Raw Barometer             30.26     1:00am    4/30/20      29.01     4:43pm     4/9/20      29.78
+Total Rain                 7.69    11:12pm    4/30/20       3.70     3:13pm     4/7/20       6.46

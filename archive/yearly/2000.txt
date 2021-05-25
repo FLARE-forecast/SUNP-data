@@ -1,0 +1,8 @@
+Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
+Wind Direction              202    12:00am                   202    12:00am                     0
+Wind Speed                    0    12:00am                     0    12:00am                     0
+Wind Gust                     0    12:00am                     0    12:00am                     0
+Humidity                     98     2:36am    6/29/15         22     1:58pm    6/29/15         73
+Out Temp                   76.1     1:57pm    6/29/15       51.1     1:50am    6/29/15       57.6
+Raw Barometer             28.91    12:00am     0/0/00      28.44     3:43pm     7/1/15      28.58
+Total Rain                55.55     4:44pm    8/19/15      51.13    12:00am                 52.14

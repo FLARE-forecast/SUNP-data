@@ -1,0 +1,13 @@
+                  MONTHLY CLIMATOLOGICAL SUMMARY FOR 2/2002
+                                        HEAT  COOL        
+     MEAN                               DEG   DEG       WIND SPEED       DOM MEAN  MEAN
+DAY  TEMP  HIGH   TIME     LOW   TIME   DAYS  DAYS RAIN AVG  HI  TIME    DIR BAROM HUM
+---------------------------------------------------------------------------------------
+1
+2    53.6  63.7  10:01am  51.1   1:50am    5    0  0.00   0   0  12:00am   N 28.53   86
+---------------------------------------------------------------------------------------
+TOT  64.7  87.6  6/23/15  47.7  6/27/15    5    0  1.41   0   0  6/23/15   N 28.71   48
+
+HEAT BASE: 65.0
+COOL BASE: 65.0
+

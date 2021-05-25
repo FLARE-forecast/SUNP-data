@@ -1,0 +1,13 @@
+                  YEARLY CLIMATOLOGICAL SUMMARY FOR 2002
+                                        HEAT  COOL        
+     MEAN                               DEG   DEG       WIND SPEED       DOM MEAN  MEAN
+MON  TEMP  HIGH   DATE     LOW   DATE   DAYS  DAYS RAIN AVG  HI  DATE    DIR BAROM HUM
+---------------------------------------------------------------------------------------
+1
+2    64.7  87.6  6/23/15  47.7  6/27/15   28   26  1.41   0   0  6/23/15   N 28.71   48
+---------------------------------------------------------------------------------------
+TOT  54.1  63.7  6/29/15  51.1  6/29/15   15    0  0.96   0   0            N 28.57   84
+
+HEAT BASE: 65.0
+COOL BASE: 65.0
+

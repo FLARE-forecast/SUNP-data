@@ -1,0 +1,11 @@
+                  MONTHLY CLIMATOLOGICAL SUMMARY FOR 0/2129
+                                        HEAT  COOL        
+     MEAN                               DEG   DEG       WIND SPEED       DOM MEAN  MEAN
+DAY  TEMP  HIGH   TIME     LOW   TIME   DAYS  DAYS RAIN AVG  HI  TIME    DIR BAROM HUM
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+TOT  66.7  71.1   7/1/15  66.6  8/19/15    0    0  2.71   0   0   7/1/15   N 31.02   64
+
+HEAT BASE: 65.0
+COOL BASE: 65.0
+
