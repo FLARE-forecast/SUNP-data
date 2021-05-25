@@ -1,8 +1,0 @@
-Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
-Wind Direction              360     9:56am     6/1/19          1     5:06pm     6/1/19        270
-Wind Speed                   25     2:23pm    6/13/19          0    12:00am     6/1/19          1
-Wind Gust                    25     2:23pm    6/13/19          0    12:00am     6/1/19          5
-Humidity                     98    10:46pm     6/2/19         17     5:19pm     6/8/19         74
-Out Temp                   90.0     5:10pm    6/28/19       37.0     5:35am     6/4/19       63.1
-Raw Barometer             30.29     8:55am     6/9/19      29.38     8:48pm    6/20/19      29.83
-Total Rain                19.14     6:11pm    6/30/19      12.59    12:00am     6/1/19      15.84

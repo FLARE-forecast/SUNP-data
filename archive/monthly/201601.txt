@@ -1,8 +1,0 @@
-Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
-Wind Direction              360    12:39am     1/2/16          1    12:10am     1/1/16        270
-Wind Speed                   28    12:12pm    1/10/16          0    12:00am     1/1/16          3
-Wind Gust                    28    12:12pm    1/10/16          0    12:00am     1/1/16          9
-Humidity                     98    11:25pm     1/9/16         20     2:19pm     1/6/16         73
-Out Temp                   48.7     2:59pm    1/31/16       -1.3     7:22am     1/5/16       23.9
-Raw Barometer             30.59     9:48am     1/5/16      29.19     6:12pm    1/10/16      29.90
-Total Rain                 1.61     3:01pm    1/26/16       0.00    12:00am     1/1/16       1.07

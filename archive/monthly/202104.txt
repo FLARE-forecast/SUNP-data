@@ -1,8 +1,0 @@
-Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
-Wind Direction              360     2:22am     4/1/21          0     3:00am     4/7/21        270
-Wind Speed                   28     1:00pm    4/23/21          0    12:00am     4/1/21          2
-Wind Gust                    29     6:00pm    4/30/21          0    12:30am     4/1/21          8
-Humidity                     98     5:00am    4/17/21         16     4:00pm    4/27/21         72
-Out Temp                   78.4     5:30pm    4/10/21       15.4     6:25am     4/3/21       44.3
-Raw Barometer             30.25     9:12am     4/3/21      29.15     1:30pm    4/30/21      29.80
-Total Rain                 0.00    12:00am     4/1/21       0.00    12:00am     4/1/21       0.00

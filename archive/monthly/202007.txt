@@ -1,8 +1,0 @@
-Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
-Wind Direction              360     3:22pm     7/3/20          0    10:30pm    7/13/20        112
-Wind Speed                   17    11:55am    7/27/20          0    12:00am     7/1/20          1
-Wind Gust                    20     1:00am    7/11/20          0    12:00am     7/1/20          5
-Humidity                     98    12:00am     7/1/20         32     5:32pm     7/4/20         79
-Out Temp                   93.7     3:30pm    7/19/20       55.9     6:00am    7/31/20       72.0
-Raw Barometer             30.27     8:07am    7/16/20      29.44     6:00am    7/12/20      29.85
-Total Rain                17.34     7:00am    7/31/20      12.32    12:00am     7/1/20      14.94

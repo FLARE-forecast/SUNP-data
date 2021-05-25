@@ -1,8 +1,0 @@
-Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
-Wind Direction              360     3:58pm   10/20/17          0     7:30pm    10/1/17        270
-Wind Speed                   31     9:21pm   10/29/17          0    12:00am    10/1/17          2
-Wind Gust                    31     9:21pm   10/29/17          0     6:30pm    10/2/17          7
-Humidity                     98     5:30am    10/9/17         32     3:22pm   10/20/17         80
-Out Temp                   77.3     4:00pm    10/8/17       28.6     7:30am   10/17/17       54.4
-Raw Barometer             30.57    10:00am    10/3/17      28.91     5:43am   10/30/17      30.01
-Total Rain                38.71    11:51am   10/30/17      30.48    12:00am    10/1/17      32.32

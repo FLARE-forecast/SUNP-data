@@ -1,8 +1,0 @@
-Parameter                   Max   Max Time        Min   Min Time    Average
-Wind Direction              360     2:52am          1     1:00am         90
-Wind Speed                   14     1:22pm          0    12:00am          1
-Wind Gust                    14     1:22pm          0    12:00am          6
-Humidity                     74    12:00am         22     1:43pm         45
-Out Temp                   66.9     4:48pm       44.3     5:39am       55.0
-Raw Barometer             30.29    10:06pm      30.03    12:03am      30.19
-Total Rain                 9.86    12:00am       9.86    12:00am       9.86

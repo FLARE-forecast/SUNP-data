@@ -1,8 +1,0 @@
-Parameter                   Max   Max Time   Max Date        Min   Min Time   Min Date    Average
-Wind Direction              360     8:26pm     2/6/20          0    11:30pm     2/1/20        270
-Wind Speed                   29     3:46pm    2/27/20          0    12:00am     2/1/20          2
-Wind Gust                    29     3:46pm    2/27/20          0     2:00am     2/1/20          6
-Humidity                    100     3:27am    2/27/20         32     2:20pm    2/19/20         76
-Out Temp                   56.6     2:46pm    2/24/20       -8.5     7:40am    2/15/20       26.0
-Raw Barometer             30.59     9:17am    2/15/20      28.67     2:24pm     2/7/20      29.92
-Total Rain                 2.02    12:02pm    2/27/20       1.48    12:00am     2/1/20       1.62
