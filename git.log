@@ -6,3 +6,11 @@ Already up to date.
 To github.com:FLARE-forecast/SUNP-data.git
    00c22e7..945fcdd  sunp-buoy-data -> sunp-buoy-data
 Git Logs Backup: 
+warning: LF will be replaced by CRLF in git.log.
+The file will have its original line endings in your working directory
+[lspa-computer-logs 66f3957] Daily Push
+ 1 file changed, 8 insertions(+)
+ create mode 100644 git.log
+Already up to date.
+To github.com:FLARE-forecast/SUNP-data.git
+   7c93cca..66f3957  lspa-computer-logs -> lspa-computer-logs
