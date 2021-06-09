@@ -85,3 +85,10 @@ Already up to date.
 Everything up-to-date
 . 
 Git Logs Backup: 
+warning: LF will be replaced by CRLF in git.log.
+The file will have its original line endings in your working directory
+[lspa-computer-logs 8aab1a3] Daily Push
+ 1 file changed, 20 insertions(+)
+Already up to date.
+To github.com:FLARE-forecast/SUNP-data.git
+   aae6dfb..8aab1a3  lspa-computer-logs -> lspa-computer-logs
