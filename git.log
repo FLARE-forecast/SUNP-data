@@ -14,3 +14,21 @@ The file will have its original line endings in your working directory
 Already up to date.
 To github.com:FLARE-forecast/SUNP-data.git
    7c93cca..66f3957  lspa-computer-logs -> lspa-computer-logs
+warning: LF will be replaced by CRLF in git.log.
+The file will have its original line endings in your working directory
+[lspa-computer-logs ac4f312] Daily Push
+ 1 file changed, 8 insertions(+)
+To github.com:FLARE-forecast/SUNP-data.git
+   66f3957..ac4f312  lspa-computer-logs -> lspa-computer-logs
+-------------- Wed 06/09/2021 14:20:45.94 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data dc82fa5] Daily Push
+ 2 files changed, 11 insertions(+)
+From github.com:FLARE-forecast/SUNP-data
+   7c93cca..ac4f312  lspa-computer-logs -> origin/lspa-computer-logs
+Already up to date.
+To github.com:FLARE-forecast/SUNP-data.git
+   945fcdd..dc82fa5  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
