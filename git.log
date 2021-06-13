@@ -756,3 +756,20 @@ Git Logs Backup:
 Already up to date.
 To github.com:FLARE-forecast/SUNP-data.git
    86e268a..0f91974  lspa-computer-logs -> lspa-computer-logs
+[lspa-computer-logs fed6f5a] Daily Push
+ 1 file changed, 5 insertions(+)
+To github.com:FLARE-forecast/SUNP-data.git
+   0f91974..fed6f5a  lspa-computer-logs -> lspa-computer-logs
+ 
+-------------- Sun 06/13/2021  0:05:01.99 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data 1fcd2c6] Daily Push
+ 2 files changed, 198 insertions(+)
+From github.com:FLARE-forecast/SUNP-data
+   86e268a..fed6f5a  lspa-computer-logs -> origin/lspa-computer-logs
+Already up to date.
+To github.com:FLARE-forecast/SUNP-data.git
+   9954e15..1fcd2c6  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
