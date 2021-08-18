@@ -37,4 +37,4 @@ jobs:
           git add sunpMetDataFigures_$(date '+%Y-%m-%d').pdf sunpWaterQualityDataFigures_$(date '+%Y-%m-%d').pdf
           git commit -m "sunp-generate-graphs-$(date '+%Y-%m-%d')" -a
           git branch sunp-graphs
-          git push origin sunp-graphs
+          git push --force origin sunp-graphs
