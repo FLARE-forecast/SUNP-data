@@ -2,10 +2,8 @@ name: sunp-generate-graphs
 
 # Controls when the action will run.
 on:
-  push:
-    branches: [ sunp-generate-graphs ]
   schedule:
-    - cron:  '0 */6 * * *'
+    - cron:  '20 18 * * *'
 
 
 jobs: 
