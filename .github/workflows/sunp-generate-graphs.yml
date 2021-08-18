@@ -36,4 +36,5 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add sunpMetDataFigures_$(date '+%Y-%m-%d').pdf sunpWaterQualityDataFigures_$(date '+%Y-%m-%d').pdf
           git commit -m "sunp-generate-graphs-$(date '+%Y-%m-%d')" -a
-          git push --force origin sunp-graphs
+          git branch sunp-graphs
+          git push origin sunp-graphs
