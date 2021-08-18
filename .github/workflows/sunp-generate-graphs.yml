@@ -29,11 +29,6 @@ jobs:
       - name: Run R Script
         run: Rscript sunp-generate-graphs.R
       
-      - name: Checkout with sunp-graphs branch
-        uses: actions/checkout@v2
-        with:
-          ref: sunp-graphs
-          fetch-depth: 1
       # Commit files ,and push
       - name: Commit files
         run: |
@@ -41,10 +36,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add sunpMetDataFigures_$(date '+%Y-%m-%d').pdf sunpWaterQualityDataFigures_$(date '+%Y-%m-%d').pdf
           git commit -m "sunp-generate-graphs-$(date '+%Y-%m-%d')" -a
-      
-      
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: sunp-graphs
+          git push --force sunp-graphs
