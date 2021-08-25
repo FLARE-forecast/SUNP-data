@@ -1,12 +1,7 @@
 name: sunp-generate-graphs
 
 # Controls when the action will run.
-on:
-  push:
-    branches: [ sunp-generate-graphs ]
-  schedule:
-    - cron:  '0 */7 * * *'
-
+on: workflow_dispatch
 
 jobs: 
   generate-graphs:
@@ -34,8 +29,8 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git branch sunp-graphs
+          git pull --force
           git add sunpMetDataFigures_$(date '+%Y-%m-%d').pdf sunpWaterQualityDataFigures_$(date '+%Y-%m-%d').pdf
           git commit -m "sunp-generate-graphs-$(date '+%Y-%m-%d')"
-          git branch sunp-graphs
-          git pull
           git push --force origin sunp-graphs
