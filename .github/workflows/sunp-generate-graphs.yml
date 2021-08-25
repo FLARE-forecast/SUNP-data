@@ -34,6 +34,7 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git pull sunp-graphs
           git add sunpMetDataFigures_$(date '+%Y-%m-%d').pdf sunpWaterQualityDataFigures_$(date '+%Y-%m-%d').pdf
           git commit -m "sunp-generate-graphs-$(date '+%Y-%m-%d')"
           git branch sunp-graphs
