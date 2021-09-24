@@ -1,7 +1,9 @@
 library(lubridate)
 
-download.file('https://github.com/FLARE-forecast/SUNP-data/raw/sunp-buoy-data/SUNP_buoy_met.csv', 'sunp-met.csv')
-download.file('https://github.com/FLARE-forecast/SUNP-data/raw/sunp-buoy-data/SUNP_buoy_wq.csv', 'sunp-wq.csv')
+#setwd("~/Dropbox/scc_figs/")
+
+download.file('https://raw.githubusercontent.com/FLARE-forecast/SUNP-data/sunp-buoy-data/SUNP_buoy_met.csv', 'sunp-met.csv')
+download.file('https://raw.githubusercontent.com/FLARE-forecast/SUNP-data/sunp-buoy-data/SUNP_buoy_wq.csv', 'sunp-wq.csv')
 
 #SUNP met data
 
@@ -15,7 +17,7 @@ sunpmetdata <- sunpmetdata[complete.cases(sunpmetdata$TIMESTAMP),]
 #Removes row if the RECORD column has an NA or blank
 sunpmetdata=sunpmetdata[!(is.na(sunpmetdata$RECORD) | sunpmetdata$RECORD==""), ]
 
-#for the time sequence we can use the same as from the FCR met staion
+#for the time sequence we can use the same as from the FCR met staion 
 end.time <- with_tz(as.POSIXct(strptime(Sys.time(), format = "%Y-%m-%d %H:%M")), tzone = "Etc/GMT+5") #gives us current time with rounded minutes in EDT
 start.time <- end.time - days(7) #to give us seven days of data for looking at changes
 full_time <- seq(start.time, end.time, by = "min") #create sequence of dates from past 5 days to fill in data
@@ -73,7 +75,7 @@ sunpwaterdata <- sunpwaterdata[complete.cases(sunpwaterdata$TIMESTAMP),]
 #Removes row if the RECORD column has an NA or blank
 sunpwaterdata=sunpwaterdata[!(is.na(sunpwaterdata$RECORD) | sunpwaterdata$RECORD==""), ]
 
-#For the time sequence we can use the same as the FCR catwalk
+#For the time sequence we can use the same as the FCR catwalk 
 end.time1 <- with_tz(as.POSIXct(strptime(Sys.time(), format = "%Y-%m-%d %H")), tzone = "Etc/GMT+5") #gives us current time with rounded hours in EDT
 start.time1 <- end.time1 - days(7) #to give us seven days of data for looking at changes
 full_time1 <- as.data.frame(seq(start.time1, end.time1, by = "10 min")) #create sequence of dates from past 5 days to fill in data
@@ -112,7 +114,7 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
 
   plot(obs5$TIMESTAMP,obs5$RECORD, main="Campbell Logger Record", xlab="Time", ylab="Number", type='l')
   plot(obs5$TIMESTAMP,obs5$BattV, main="Campbell Logger Battery", xlab="Time", ylab="Volts", type='l')
-  #Going to add these back in when the EXos are in
+  #Going to add these back in when the EXos are in 
   #added y limits so the axises would show up when the are no data
   plot(obs5$TIMESTAMP,obs5$EXO_battery, main="EXO Battery", xlab="Time", ylab="Volts", type='l',lwd=1.5,  ylim=c(2,8)) # previously c(-0.5, 15)
 
@@ -127,27 +129,27 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
   plot(obs5$TIMESTAMP,obs5$EXO_pressure, main="Sonde Pressure", xlab="Time", ylab="psi", type='l', ylim=c(-1,10))
 
 
-  plot(obs5$TIMESTAMP,obs5$doobs, main="DO", xlab="Time", ylab="mg/L", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$doobs, obs5$doobs_1, na.rm = TRUE) - 1, max(obs5$doobs, obs5$doobs_1, na.rm = TRUE) + 1))
+  plot(obs5$TIMESTAMP,obs5$doobs, main="DO", xlab="Time", ylab="mg/L", type='l', col="medium sea green", lwd=1.5, ylim=c(8,11))
   points(obs5$TIMESTAMP, obs5$doobs_1, col = "magenta", lwd = 1.5, type = "l")
   legend("topleft", c("EXO DO 1m", "DO 10m"), text.col = c("magenta", "medium sea green"), x.intersp=0.001)
 
-  plot(obs5$TIMESTAMP,obs5$dosat, main="DO % saturation", xlab="Time", ylab="% saturation", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$dosat, obs5$dosat_1, na.rm = TRUE) - 5, max(obs5$dosat, obs5$dosat_1, na.rm = TRUE) + 5))
+  plot(obs5$TIMESTAMP,obs5$dosat, main="DO % saturation", xlab="Time", ylab="% saturation", type='l', col="medium sea green", lwd=1.5, ylim=c(80, 110)) # previously c(-0.5,170)
   points(obs5$TIMESTAMP, obs5$dosat_1, col = "magenta", lwd = 1.5, type = "l")
   legend("topleft", c("EXO DO 1m", "DO 10m"), text.col = c("magenta", "medium sea green"), x.intersp=0.001)
 
 
-  plot(obs5$TIMESTAMP,obs5$Cond, main="Cond, SpCond @ 1.0m", xlab="Time", ylab="uS/cm", type='l', col="magenta", lwd=1.5, ylim=c(min(obs5$Cond, obs5$SpCond, na.rm = TRUE) - 1, max(obs5$Cond, obs5$SpCond, na.rm = TRUE) + 1))
+  plot(obs5$TIMESTAMP,obs5$Cond, main="Cond, SpCond @ 1.0m", xlab="Time", ylab="uS/cm", type='l', col="magenta", lwd=1.5, ylim=c(80,110))
   points(obs5$TIMESTAMP, obs5$SpCond, col="black", type='l', lwd=1.5)
   legend("topleft", c("SPCond 1m", "Cond 1m"), text.col=c("black", "magenta"), x.intersp=0.001)
 
   plot(obs5$TIMESTAMP, obs5$TDS, main = "TDS @ 1.0m", col="DarkOrange1", xlab = "Time", ylab = "mg/L", type="l", lwd=1.5, ylim = c(0,0.2))
 
   #
-  plot(obs5$TIMESTAMP,obs5$Chla_1, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5, ylim=c(min(obs5$Chla_1, obs5$BGAPC_1, na.rm = TRUE) -0.5, max(obs5$Chla_1, obs5$BGAPC_1, na.rm = TRUE) + 0.5))
+  plot(obs5$TIMESTAMP,obs5$Chla_1, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5, ylim=c(-0.5,4))
   points(obs5$TIMESTAMP, obs5$BGAPC_1, col="blue", type='l', lwd=1.5)
   legend("topleft", c("Chla 1m", "Phyco 1m"), text.col=c("green", "blue"), x.intersp=0.001)
 
-  plot(obs5$TIMESTAMP, obs5$fDOM_QSU_1, main = "fDOM @ 1.0m", xlab = "Time", ylab = "QSU", col="firebrick4", type='l', lwd=1.5, ylim = c(min(obs5$fDOM_QSU_1, na.rm = TRUE) - 1, max(obs5$fDOM_QSU_1, na.rm = TRUE) + 1))
+  plot(obs5$TIMESTAMP, obs5$fDOM_QSU_1, main = "fDOM @ 1.0m", xlab = "Time", ylab = "QSU", col="firebrick4", type='l', lwd=1.5, ylim = c(6, 15))
 
 
   par(mfrow=c(1,1))
