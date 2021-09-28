@@ -24,12 +24,10 @@ obs4 <- array(NA,dim=c(length(full_time),17)) #create array that will be filled 
 #commented all lines that are irrelevant for 2020 data, per change in data downloads
 #met_timechange=max(which(sunpmetdata$TIMESTAMP=="2019-04-15 10:19:00")) #shows time point when met station was switched from GMT -4 to GMT -5
 sunpmetdata$TIMESTAMP<-as.POSIXct(strptime(sunpmetdata$TIMESTAMP, "%Y-%m-%d %H:%M"), tz = "Etc/GMT+5") #get dates aligned
-#sunpmetdata$TIMESTAMP[c(1:met_timechange-1)]<-with_tz(force_tz(sunpmetdata$TIMESTAMP[c(1:met_timechange-1)],"Etc/GMT+4"), "Etc/GMT+5") #pre time change dataa
- gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
+#sunpmetdata$TIMESTAMP[c(1:met_timechange-1)]<-with_tz(force_tz(sunpmetdata$TIMESTAMP[c(1:met_timechange-1)],"Etc/GMT+4"), "Etc/GMT+5") #pre time change data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
 #sunpmetdata=sunpmetdata[-c(met_timechange-1),]
 
-if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0) { #if there is no data after start time, then a pdf will be made explaining  
-this
+if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0) { #if there is no data after start time, then a pdf will be made explaining this
   pdf(paste0("sunpMetDataFigures_", Sys.Date(), ".pdf"), width=8.5, height=11) #call PDF file
   plot(NA, xlim=c(0,5), ylim=c(0,5), bty='n',xaxt='n', yaxt='n', xlab='', ylab='') #creates empty plot
   mtext(paste("No data found between", start.time, "and", end.time, sep = " ")) #fills in text in top margin of plot
@@ -84,11 +82,9 @@ colnames(full_time1)=c("TIMESTAMP") #make it a data frame to merge to make obs5 
 #obs5 <- array(NA,dim=c(length(full_time1),41)) #create array that will be filled in with 41 columns (the entire size of the array)
 #cat_timechange=max(which(sunpwaterdata$TIMESTAMP=="2019-04-15 10:00:00"))
 sunpwaterdata$TIMESTAMP<-as.POSIXct(strptime(sunpwaterdata$TIMESTAMP, "%Y-%m-%d %H:%M"), tz = "Etc/GMT+5") #get dates aligned
-#sunpwaterdata$TIMESTAMP[c(1:cat_timechange-1)]<-with_tz(force_tz(sunpwaterdata$TIMESTAMP[c(1:cat_timechange-1)],"Etc/GMT+4"), "Etc/GMT+5") #pre time change  
-data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
+#sunpwaterdata$TIMESTAMP[c(1:cat_timechange-1)]<-with_tz(force_tz(sunpwaterdata$TIMESTAMP[c(1:cat_timechange-1)],"Etc/GMT+4"), "Etc/GMT+5") #pre time change data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
 
-if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1]))==0) { #if there is no data after start time, then a pdf will be made explaii
-ning this
+if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1]))==0) { #if there is no data after start time, then a pdf will be made explaining this
   pdf(paste0("sunpWaterQualityDataFigures_", Sys.Date(), ".pdf"), width=8.5, height=11) #call PDF file
   plot(NA, xlim=c(0,5), ylim=c(0,5), bty='n',xaxt='n', yaxt='n', xlab='', ylab='') #creates empty plot
   mtext(paste("No data found between", start.time1, "and", end.time1, sep = " ")) #fills in text in top margin of plot
@@ -131,32 +127,27 @@ ning this
   plot(obs5$TIMESTAMP,obs5$EXO_pressure, main="Sonde Pressure", xlab="Time", ylab="psi", type='l', ylim=c(-1,10))
 
 
-  plot(obs5$TIMESTAMP,obs5$doobs, main="DO", xlab="Time", ylab="mg/L", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$doobs, obs5$doobs_1, na.rr
-m = TRUE) - 1, max(obs5$doobs, obs5$doobs_1, na.rm = TRUE) + 1))
+  plot(obs5$TIMESTAMP,obs5$doobs, main="DO", xlab="Time", ylab="mg/L", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$doobs, obs5$doobs_1, na.rm = TRUE) - 1, max(obs5$doobs, obs5$doobs_1, na.rm = TRUE) + 1))
   points(obs5$TIMESTAMP, obs5$doobs_1, col = "magenta", lwd = 1.5, type = "l")
   legend("topleft", c("EXO DO 1m", "DO 10m"), text.col = c("magenta", "medium sea green"), x.intersp=0.001)
 
-  plot(obs5$TIMESTAMP,obs5$dosat, main="DO % saturation", xlab="Time", ylab="% saturation", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$dosaa
-t, obs5$dosat_1, na.rm = TRUE) - 5, max(obs5$dosat, obs5$dosat_1, na.rm = TRUE) + 5))
+  plot(obs5$TIMESTAMP,obs5$dosat, main="DO % saturation", xlab="Time", ylab="% saturation", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$dosat, obs5$dosat_1, na.rm = TRUE) - 5, max(obs5$dosat, obs5$dosat_1, na.rm = TRUE) + 5))
   points(obs5$TIMESTAMP, obs5$dosat_1, col = "magenta", lwd = 1.5, type = "l")
   legend("topleft", c("EXO DO 1m", "DO 10m"), text.col = c("magenta", "medium sea green"), x.intersp=0.001)
 
 
-  plot(obs5$TIMESTAMP,obs5$Cond, main="Cond, SpCond @ 1.0m", xlab="Time", ylab="uS/cm", type='l', col="magenta", lwd=1.5, ylim=c(min(obs5$Cond, obs5$SpCond,  
-na.rm = TRUE) - 1, max(obs5$Cond, obs5$SpCond, na.rm = TRUE) + 1))
+  plot(obs5$TIMESTAMP,obs5$Cond, main="Cond, SpCond @ 1.0m", xlab="Time", ylab="uS/cm", type='l', col="magenta", lwd=1.5, ylim=c(min(obs5$Cond, obs5$SpCond, na.rm = TRUE) - 1, max(obs5$Cond, obs5$SpCond, na.rm = TRUE) + 1))
   points(obs5$TIMESTAMP, obs5$SpCond, col="black", type='l', lwd=1.5)
   legend("topleft", c("SPCond 1m", "Cond 1m"), text.col=c("black", "magenta"), x.intersp=0.001)
 
   plot(obs5$TIMESTAMP, obs5$TDS, main = "TDS @ 1.0m", col="DarkOrange1", xlab = "Time", ylab = "mg/L", type="l", lwd=1.5, ylim = c(0,0.2))
 
   #
-  plot(obs5$TIMESTAMP,obs5$Chla_1, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5, ylim=c(min(obs5$Chla_1, obs5$BGAPC_1,,
- na.rm = TRUE) -0.5, max(obs5$Chla_1, obs5$BGAPC_1, na.rm = TRUE) + 0.5))
+  plot(obs5$TIMESTAMP,obs5$Chla_1, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5, ylim=c(min(obs5$Chla_1, obs5$BGAPC_1, na.rm = TRUE) -0.5, max(obs5$Chla_1, obs5$BGAPC_1, na.rm = TRUE) + 0.5))
   points(obs5$TIMESTAMP, obs5$BGAPC_1, col="blue", type='l', lwd=1.5)
   legend("topleft", c("Chla 1m", "Phyco 1m"), text.col=c("green", "blue"), x.intersp=0.001)
 
-  plot(obs5$TIMESTAMP, obs5$fDOM_QSU_1, main = "fDOM @ 1.0m", xlab = "Time", ylab = "QSU", col="firebrick4", type='l', lwd=1.5, ylim = c(min(obs5$fDOM_QSU_1,,
- na.rm = TRUE) - 1, max(obs5$fDOM_QSU_1, na.rm = TRUE) + 1))
+  plot(obs5$TIMESTAMP, obs5$fDOM_QSU_1, main = "fDOM @ 1.0m", xlab = "Time", ylab = "QSU", col="firebrick4", type='l', lwd=1.5, ylim = c(min(obs5$fDOM_QSU_1, na.rm = TRUE) - 1, max(obs5$fDOM_QSU_1, na.rm = TRUE) + 1))
 
 
   par(mfrow=c(1,1))
@@ -180,4 +171,4 @@ na.rm = TRUE) - 1, max(obs5$Cond, obs5$SpCond, na.rm = TRUE) + 1))
          cex=1, y.intersp=1, x.intersp=0.001, inset=c(0,0), xpd=T, bty='n')
 
   dev.off() #file made!
-
+}
