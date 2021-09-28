@@ -180,3 +180,4 @@ na.rm = TRUE) - 1, max(obs5$Cond, obs5$SpCond, na.rm = TRUE) + 1))
          cex=1, y.intersp=1, x.intersp=0.001, inset=c(0,0), xpd=T, bty='n')
 
   dev.off() #file made!
+
