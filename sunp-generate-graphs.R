@@ -60,7 +60,7 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
   # plot(obs4$TIMESTAMP,obs4$IR01UpCo_Avg, main="Longwave Up", xlab="Time", ylab="W/m2",type='l')
   # plot(obs4$TIMESTAMP,obs4$IR01DnCo_Avg, main="Longwave Down", xlab="Time", ylab="W/m2",type='l')
   plot(obs4$TIMESTAMP,obs4$PAR_Den_Avg, main="PAR", xlab="Time", ylab="umol/s/m^2",type='l')
-  dev.off() #file made!
+  #dev.off() #file made!
 }
 
 
@@ -172,4 +172,5 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
                     "DeepSkyBlue4", "blue2", "blue4", "darkslateblue"),
          cex=1, y.intersp=1, x.intersp=0.001, inset=c(0,0), xpd=T, bty='n')
 
-  dev.off() #file made!
+  #dev.off() #file made!
+}
