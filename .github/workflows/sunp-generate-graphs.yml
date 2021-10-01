@@ -3,12 +3,12 @@ name: sunp-generate-graphs
 # Controls when the action will run.
 on: 
   schedule:
-    - cron: '15 20 * * *'
+    - cron: '00 07 * * *'
 
 jobs: 
   generate-graphs:
     # The type of runner that the job will run on
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     # Load repo and install R
     steps:
