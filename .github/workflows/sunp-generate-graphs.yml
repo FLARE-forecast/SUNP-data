@@ -4,6 +4,7 @@ name: sunp-generate-graphs
 on: 
   schedule:
     - cron: '00 07 * * *'
+  workflow_dispatch:
 
 jobs: 
   generate-graphs:
