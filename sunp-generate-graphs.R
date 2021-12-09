@@ -12,6 +12,9 @@ names(sunpmetdata)<-names(sunpmetheader) #combine the names to deal with Campbel
 #Removes row if the TIMESTAMP column is blank
 sunpmetdata <- sunpmetdata[complete.cases(sunpmetdata$TIMESTAMP),]
 
+# remove duplicate times
+sunpmetdata <- sunpmetdata %>% distinct(TIMESTAMP, .keep_all = TRUE)
+
 #Removes row if the RECORD column has an NA or blank
 sunpmetdata=sunpmetdata[!(is.na(sunpmetdata$RECORD) | sunpmetdata$RECORD==""), ]
 
@@ -26,6 +29,7 @@ obs4 <- array(NA,dim=c(length(full_time),17)) #create array that will be filled 
 sunpmetdata$TIMESTAMP<-as.POSIXct(strptime(sunpmetdata$TIMESTAMP, "%Y-%m-%d %H:%M"), tz = "Etc/GMT+5") #get dates aligned
 #sunpmetdata$TIMESTAMP[c(1:met_timechange-1)]<-with_tz(force_tz(sunpmetdata$TIMESTAMP[c(1:met_timechange-1)],"Etc/GMT+4"), "Etc/GMT+5") #pre time change data gets assigned proper timezone then corrected to GMT -5 to match the rest of the data set
 #sunpmetdata=sunpmetdata[-c(met_timechange-1),]
+
 
 if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0) { #if there is no data after start time, then a pdf will be made explaining this
   pdf(paste0("sunpMetDataFigures_", Sys.Date(), ".pdf"), width=8.5, height=11) #call PDF file
@@ -69,6 +73,9 @@ names(sunpwaterdata)<-names(sunpwaterheader) #combine the names to deal with Cam
 
 #Removes row if the TIMESTAMP column is blank
 sunpwaterdata <- sunpwaterdata[complete.cases(sunpwaterdata$TIMESTAMP),]
+
+# remove duplicate times
+sunpwaterdata <- sunpwaterdata %>% distinct(TIMESTAMP, .keep_all = TRUE)
 
 #Removes row if the RECORD column has an NA or blank
 sunpwaterdata=sunpwaterdata[!(is.na(sunpwaterdata$RECORD) | sunpwaterdata$RECORD==""), ]
