@@ -54,7 +54,7 @@ jobs:
           # email body as text
           body: |
             ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-            The workflow link is https://github.com/FLARE-forecast/FCRE-data/actions/runs/${{ github.run_id }}
+            The workflow link is https://github.com/FLARE-forecast/SUNP-data/actions/runs/${{ github.run_id }}
           # comma-separated string, send email to
           to: y.ku@ufl.edu
           # from email name
