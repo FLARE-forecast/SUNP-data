@@ -40,7 +40,7 @@ jobs:
       
       # Check action status. If failure, send email to notify administrators
       - name: Send mail
-        if: ${{ failure() }}
+        #if: ${{ failure() }}
         uses: dawidd6/action-send-mail@v2
         with:
           # mail server settings
@@ -52,8 +52,10 @@ jobs:
           # email subject
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           # email body as text
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          body: |
+            ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+            The workflow link is https://github.com/FLARE-forecast/FCRE-data/actions/runs/${{ github.run_id }}
           # comma-separated string, send email to
-          to: abreefpilz@vt.edu, vdaneshmand@acis.ufl.edu
+          to: y.ku@ufl.edu
           # from email name
           from: FLARE
