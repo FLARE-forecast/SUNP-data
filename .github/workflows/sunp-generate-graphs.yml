@@ -40,7 +40,7 @@ jobs:
       
       # Check action status. If failure, send email to notify administrators
       - name: Send mail
-        #if: ${{ failure() }}
+        if: ${{ failure() }}
         uses: dawidd6/action-send-mail@v2
         with:
           # mail server settings
@@ -56,6 +56,6 @@ jobs:
             ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
             The workflow link is https://github.com/FLARE-forecast/SUNP-data/actions/runs/${{ github.run_id }}
           # comma-separated string, send email to
-          to: y.ku@ufl.edu
+          to: abreefpilz@vt.edu, vdaneshmand@acis.ufl.edu
           # from email name
           from: FLARE
