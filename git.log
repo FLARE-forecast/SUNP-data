@@ -60544,3 +60544,31 @@ Git Logs Backup:
 Already up to date.
 To github.com:FLARE-forecast/SUNP-data.git
    f371760..a0a6e32  lspa-computer-logs -> lspa-computer-logs
+[lspa-computer-logs a33327c] Daily Push
+ 1 file changed, 5 insertions(+)
+To github.com:FLARE-forecast/SUNP-data.git
+   a0a6e32..a33327c  lspa-computer-logs -> lspa-computer-logs
+ 
+-------------- Sat 05/14/2022 12:05:01.95 --------------  
+ 
+Git Data Backup: 
+fatal: Unable to create 'C:/CIBR/sunp-buoy-data/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create 'C:/CIBR/sunp-buoy-data/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+From github.com:FLARE-forecast/SUNP-data
+   f371760f..a33327c5  lspa-computer-logs -> origin/lspa-computer-logs
+Already up to date.
+Everything up-to-date
+ 
+Git Logs Backup: 
