@@ -92726,3 +92726,24 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 Already up to date.
 Everything up-to-date
+[lspa-computer-logs ccdf3e94] Daily Push
+ 1 file changed, 26 insertions(+)
+To github.com:FLARE-forecast/SUNP-data.git
+   50613cb3..ccdf3e94  lspa-computer-logs -> lspa-computer-logs
+ 
+-------------- Thu 10/20/2022  6:05:02.16 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data 4de80329] Daily Push
+ 2 files changed, 198 insertions(+)
+From github.com:FLARE-forecast/SUNP-data
+   89d25af6..ccdf3e94  lspa-computer-logs -> origin/lspa-computer-logs
+Already up to date.
+remote: warning: See http://git.io/iEPt8g for more information.        
+remote: warning: File SUNP_buoy_met.csv is 78.36 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File SUNP_buoy_met.csv is 78.34 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To github.com:FLARE-forecast/SUNP-data.git
+   f716e282..4de80329  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
