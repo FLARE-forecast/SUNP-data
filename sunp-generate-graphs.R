@@ -1,5 +1,6 @@
 library(lubridate)
-library(dplyr)
+
+#setwd("~/Dropbox/scc_figs/")
 
 download.file('https://github.com/FLARE-forecast/SUNP-data/raw/sunp-buoy-data/SUNP_buoy_met.csv', 'sunp-met.csv')
 download.file('https://github.com/FLARE-forecast/SUNP-data/raw/sunp-buoy-data/SUNP_buoy_wq.csv', 'sunp-wq.csv')
@@ -115,61 +116,14 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
   plot(obs5$TIMESTAMP,obs5$BattV, main="Campbell Logger Battery", xlab="Time", ylab="Volts", type='l')
   #Going to add these back in when the EXos are in 
   #added y limits so the axises would show up when the are no data
-  plot(obs5$TIMESTAMP,obs5$EXO_battery, main="EXO Battery", xlab="Time", ylab="Volts", type='l',lwd=1.5,  ylim=c(2,8)) # previously c(-0.5, 15)
-  
   plot(obs5$TIMESTAMP, obs5$Radio_bat, main = "Radio Battery", xlab = "Time", ylab = "Volts", type = "l", lwd = 1.5, ylim = c(10,16))
 
-  plot(obs5$TIMESTAMP,obs5$EXO_cablepower, main="EXO Cable Power", xlab="Time", ylab="Volts", type='l',lwd=1.5, ylim=c(10,15))
-
-  plot(obs5$TIMESTAMP,obs5$EXO_depth, main="EXO Depth", xlab="Time", ylab="Meters", type='l', ylim=c(0,3))
-
   
+  plot(obs5$TIMESTAMP,obs5$doobs, main="DO (mg/L) in Harbor", xlab="Time", ylab="mg/L", type='l', col="blue", lwd=1.5, ylim = c(min(obs5$doobs, obs5$doobs_1, na.rm = TRUE) - 1, max(obs5$doobs, obs5$doobs_1, na.rm = TRUE) + 1))
   
-  plot(obs5$TIMESTAMP,obs5$EXO_pressure, main="Sonde Pressure", xlab="Time", ylab="psi", type='l', ylim=c(-1,10))
-
+  plot(obs5$TIMESTAMP,obs5$dosat, main="DO (% saturation) in Harbor", xlab="Time", ylab="% saturation", type='l', col="blue", lwd=1.5, ylim = c(min(obs5$dosat, obs5$dosat_1, na.rm = TRUE) - 5, max(obs5$dosat, obs5$dosat_1, na.rm = TRUE) + 5))
   
-  plot(obs5$TIMESTAMP,obs5$doobs, main="DO", xlab="Time", ylab="mg/L", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$doobs, obs5$doobs_1, na.rm = TRUE) - 1, max(obs5$doobs, obs5$doobs_1, na.rm = TRUE) + 1))
-  points(obs5$TIMESTAMP, obs5$doobs_1, col = "magenta", lwd = 1.5, type = "l")
-  legend("topleft", c("EXO DO 1m", "DO 10m"), text.col = c("magenta", "medium sea green"), x.intersp=0.001)
-
-  plot(obs5$TIMESTAMP,obs5$dosat, main="DO % saturation", xlab="Time", ylab="% saturation", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$dosat, obs5$dosat_1, na.rm = TRUE) - 5, max(obs5$dosat, obs5$dosat_1, na.rm = TRUE) + 5))
-  points(obs5$TIMESTAMP, obs5$dosat_1, col = "magenta", lwd = 1.5, type = "l")
-  legend("topleft", c("EXO DO 1m", "DO 10m"), text.col = c("magenta", "medium sea green"), x.intersp=0.001)
-  
-  
-  plot(obs5$TIMESTAMP,obs5$Cond, main="Cond, SpCond @ 1.0m", xlab="Time", ylab="uS/cm", type='l', col="magenta", lwd=1.5, ylim=c(min(obs5$Cond, obs5$SpCond, na.rm = TRUE) - 1, max(obs5$Cond, obs5$SpCond, na.rm = TRUE) + 1))
-  points(obs5$TIMESTAMP, obs5$SpCond, col="black", type='l', lwd=1.5)
-  legend("topleft", c("SPCond 1m", "Cond 1m"), text.col=c("black", "magenta"), x.intersp=0.001)
-  
-  plot(obs5$TIMESTAMP, obs5$TDS, main = "TDS @ 1.0m", col="DarkOrange1", xlab = "Time", ylab = "mg/L", type="l", lwd=1.5, ylim = c(0,0.2))
-  
-  #
-  plot(obs5$TIMESTAMP,obs5$Chla_1, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5, ylim=c(min(obs5$Chla_1, obs5$BGAPC_1, na.rm = TRUE) -0.5, max(obs5$Chla_1, obs5$BGAPC_1, na.rm = TRUE) + 0.5))
-  points(obs5$TIMESTAMP, obs5$BGAPC_1, col="blue", type='l', lwd=1.5)
-  legend("topleft", c("Chla 1m", "Phyco 1m"), text.col=c("green", "blue"), x.intersp=0.001)
-
-  plot(obs5$TIMESTAMP, obs5$fDOM_QSU_1, main = "fDOM @ 1.0m", xlab = "Time", ylab = "QSU", col="firebrick4", type='l', lwd=1.5, ylim = c(min(obs5$fDOM_QSU_1, na.rm = TRUE) - 1, max(obs5$fDOM_QSU_1, na.rm = TRUE) + 1))
-  
-  
-  par(mfrow=c(1,1))
-  par(oma=c(1,1,1,4))
-  plot(obs5$TIMESTAMP,obs5$wtr_surface, main="Water Temp", xlab="Time", ylab="degrees C", type='l', col="firebrick4", lwd=1.5, ylim=c(0, 35))
-  points(obs5$TIMESTAMP, obs5$wtr_1, col="firebrick1", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_2, col="DarkOrange1", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_3, col="gold", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_4, col="greenyellow", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_5, col="medium sea green", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_6, col="sea green", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_7, col="DeepSkyBlue4", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_8, col="blue2", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_9, col="blue4", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_10, col="darkslateblue", type='l', lwd=1.5)
-  par(fig=c(0,1,0,1), oma=c(0,0,0,0), mar=c(0,0,0,0), new=T)
-  plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
-  legend("right",c("0.1m","1m", "2m", "3m", "4m", "5m", "6m", "7m", "8m","9m","10m"),
-         text.col=c("firebrick4", "firebrick1", "DarkOrange1", "gold", "greenyellow", "medium sea green", "sea green",
-                    "DeepSkyBlue4", "blue2", "blue4", "darkslateblue"), 
-         cex=1, y.intersp=1, x.intersp=0.001, inset=c(0,0), xpd=T, bty='n')
+  plot(obs5$TIMESTAMP,obs5$dotemp, main="Water Temperature in Harbor", xlab="Time", ylab="Temperature (°C)", type='l', col="red", lwd=1.5, ylim = c(min(obs5$dotemp, na.rm = TRUE) - 1, max(obs5$dotemp, na.rm = TRUE) + 1))
   
   dev.off() #file made!
 }
