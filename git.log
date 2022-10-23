@@ -93381,3 +93381,25 @@ To github.com:FLARE-forecast/SUNP-data.git
    53077d26..56e8a18a  sunp-buoy-data -> sunp-buoy-data
  
 Git Logs Backup: 
+[lspa-computer-logs 86b4e29c] Daily Push
+ 1 file changed, 20 insertions(+)
+kex_exchange_identification: read: Connection reset by peer
+Connection reset by 140.82.112.3 port 22
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ 
+-------------- Sun 10/23/2022 12:05:02.18 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data 8a3fdc3f] Daily Push
+ 2 files changed, 198 insertions(+)
+Already up to date.
+remote: warning: See http://git.io/iEPt8g for more information.        
+remote: warning: File SUNP_buoy_met.csv is 78.84 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To github.com:FLARE-forecast/SUNP-data.git
+   56e8a18a..8a3fdc3f  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
