@@ -100263,3 +100263,24 @@ fatal: Could not read from remote repository.
 
 Please make sure you have the correct access rights
 and the repository exists.
+[lspa-computer-logs 0130ba8b] Daily Push
+ 1 file changed, 15 insertions(+)
+To github.com:FLARE-forecast/SUNP-data.git
+   6bb67cbe..0130ba8b  lspa-computer-logs -> lspa-computer-logs
+ 
+-------------- Sat 11/26/2022 18:05:02.53 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data ed0038d3] Daily Push
+ 2 files changed, 198 insertions(+)
+From github.com:FLARE-forecast/SUNP-data
+   f2dfc77a..0130ba8b  lspa-computer-logs -> origin/lspa-computer-logs
+Already up to date.
+remote: warning: See http://git.io/iEPt8g for more information.        
+remote: warning: File SUNP_buoy_met.csv is 84.03 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File SUNP_buoy_met.csv is 84.01 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To github.com:FLARE-forecast/SUNP-data.git
+   ba476168..ed0038d3  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
