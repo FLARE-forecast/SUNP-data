@@ -102353,3 +102353,53 @@ Git Logs Backup:
 Already up to date.
 To github.com:FLARE-forecast/SUNP-data.git
    573816d0..855498c3  lspa-computer-logs -> lspa-computer-logs
+[lspa-computer-logs 3df801aa] Daily Push
+ 1 file changed, 5 insertions(+)
+To github.com:FLARE-forecast/SUNP-data.git
+   855498c3..3df801aa  lspa-computer-logs -> lspa-computer-logs
+ 
+-------------- Fri 12/09/2022  9:05:02.27 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data c5133ef2] Daily Push
+ 2 files changed, 198 insertions(+)
+ssh: Could not resolve hostname github.com: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ssh: Could not resolve hostname github.com: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+On branch lspa-computer-logs
+Your branch is up to date with 'origin/lspa-computer-logs'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   git.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ssh: Could not resolve hostname github.com: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+-------------- Fri 12/09/2022 12:05:02.27 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data 233e7a86] Daily Push
+ 2 files changed, 198 insertions(+)
+From github.com:FLARE-forecast/SUNP-data
+   573816d0..3df801aa  lspa-computer-logs -> origin/lspa-computer-logs
+Already up to date.
+remote: warning: See http://git.io/iEPt8g for more information.        
+remote: warning: File SUNP_buoy_met.csv is 85.95 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File SUNP_buoy_met.csv is 85.93 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To github.com:FLARE-forecast/SUNP-data.git
+   fa644564..233e7a86  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
