@@ -112,7 +112,7 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
   #obs5<-as.data.frame(obs5) #make into DF
   #obs5[,1] <- full_time1 #now have your array with a proper timedate stamp!
   #colnames(obs5)<-names(sunpwaterdata[index,c(1:41)]) #get column names 
-  } 
+ # }  moved to the end so the graphs are also in the else part of the statement
 
 ### If statement to change plots when plot is in the Harbor or out in the lake#####
   
@@ -199,7 +199,7 @@ if(obs5[1,"wtr_surface"]=="NaN" & obs5[1, "EXO_wtr"]=="NaN"){
   
   dev.off() #file made!
   
-}
-  
+  }
+}  
 
 
