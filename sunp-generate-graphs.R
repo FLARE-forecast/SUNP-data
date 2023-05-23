@@ -121,7 +121,7 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
 
  # If the EXO and the temp string is out of the water then the buoy must me in the Harbor
   
-if(obs5[1,"wtr_surface"]=="NaN" & obs5[1, "EXO_wtr"]=="NaN"){
+if(obs5[1000,"wtr_surface"]=="NaN" & obs5[1000, "EXO_wtr"]=="NaN" & obs5[800,"wtr_surface"]=="NaN" & obs5[800, "EXO_wtr"]=="NaN"){
   
   plot(obs5$TIMESTAMP,obs5$RECORD, main="Campbell Logger Record", xlab="Time", ylab="Number", type='l')
   plot(obs5$TIMESTAMP,obs5$BattV, main="Campbell Logger Battery", xlab="Time", ylab="Volts", type='l')
