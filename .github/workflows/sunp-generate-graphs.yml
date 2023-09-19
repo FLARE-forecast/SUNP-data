@@ -48,8 +48,13 @@ jobs:
           git commit -m "sunp-generate-graphs-$(date '+%Y-%m-%d')"
           git branch sunp-graphs
           git push --force origin sunp-graphs
-      
-      # Check action status. If failure, send email to notify administrators
+
+  # Check action status. If failure, send email to notify administrators
+  send-mail:
+    needs: generate-graphs
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Send mail
         if: ${{ failure() }}
         uses: dawidd6/action-send-mail@v2
