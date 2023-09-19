@@ -14,14 +14,9 @@ jobs:
   generate-graphs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Specify retry settings with delays
-    strategy:
-      fail-fast: false
-      matrix:
-        max-retries: [3]  # Number of retries
-        retry-delay-seconds: [300, 1800, 7200]  # Delays between retries in seconds
-
+    retry: 3
+    retry-delay: 5
+    
     # Load repo and install R
     steps:
       - name: Checkout with sunp-generate-graphs branch
