@@ -12,10 +12,7 @@ on:
 
 jobs: 
   generate-graphs:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    retry: 3
-    retry-delay: 5
     
     # Load repo and install R
     steps:
