@@ -43,6 +43,11 @@ jobs:
           git commit -m "sunp-generate-graphs-$(date '+%Y-%m-%d')"
           git branch sunp-graphs
           git push --force origin sunp-graphs
+          
+      # Add a delay before retry
+      - name: Delay before retry
+        if: failure()  # Only run this step if the job fails
+        run: sleep 300  # Sleep for 5 minutes before retrying
 
   # Check action status. If failure, send email to notify administrators
   send-mail:
