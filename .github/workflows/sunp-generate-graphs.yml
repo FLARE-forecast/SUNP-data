@@ -13,7 +13,12 @@ on:
 jobs: 
   generate-graphs:
     runs-on: ubuntu-latest
-    
+
+    # Wrap the job in a strategy matrix for retries
+    strategy:
+      matrix:
+        max-retries: [0, 1, 2]  # Adjust the number of retries as needed
+        
     # Load repo and install R
     steps:
       - name: Checkout with sunp-generate-graphs branch
@@ -40,11 +45,6 @@ jobs:
           git commit -m "sunp-generate-graphs-$(date '+%Y-%m-%d')"
           git branch sunp-graphs
           git push --force origin sunp-graphs
-          
-      # Add a delay before retry
-      - name: Delay before retry
-        if: failure()  # Only run this step if the job fails
-        run: sleep 300  # Sleep for 5 minutes before retrying
 
   # Check action status. If failure, send email to notify administrators
   send-mail:
