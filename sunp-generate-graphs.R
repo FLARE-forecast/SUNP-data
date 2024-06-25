@@ -22,7 +22,7 @@ sunpmetdata=sunpmetdata[!(is.na(sunpmetdata$RECORD) | sunpmetdata$RECORD==""), ]
 
 #for the time sequence we can use the same as from the FCR met staion 
 end.time <- with_tz(as.POSIXct(strptime(Sys.time(), format = "%Y-%m-%d %H:%M")), tzone = "Etc/GMT+5") #gives us current time with rounded minutes in EDT
-start.time <- end.time - days(60) #to give us seven days of data for looking at changes
+start.time <- end.time - days(7) #to give us seven days of data for looking at changes
 full_time <- as.data.frame(seq(start.time, end.time, by = "min")) #create sequence of dates from past 5 days to fill in data
 colnames(full_time)=c("TIMESTAMP") #make it a data frame to merge to make obs4 later
 
@@ -88,7 +88,7 @@ sunpwaterdata=sunpwaterdata[!(is.na(sunpwaterdata$RECORD) | sunpwaterdata$RECORD
 
 #For the time sequence we can use the same as the FCR catwalk 
 end.time1 <- with_tz(as.POSIXct(strptime(Sys.time(), format = "%Y-%m-%d %H")), tzone = "Etc/GMT+5") #gives us current time with rounded hours in EDT
-start.time1 <- end.time1 - days(60) #to give us seven days of data for looking at changes
+start.time1 <- end.time1 - days(7) #to give us seven days of data for looking at changes
 full_time1 <- as.data.frame(seq(start.time1, end.time1, by = "10 min")) #create sequence of dates from past 5 days to fill in data
 colnames(full_time1)=c("TIMESTAMP") #make it a data frame to merge to make obs5 later
 
