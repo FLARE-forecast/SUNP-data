@@ -3,7 +3,7 @@ name: sunp-generate-graphs
 # Controls when the action will run.
 on:
   schedule:
-   - cron: '45 14 * * *'
+   - cron: '15 15 * * *'
   workflow_dispatch:
   workflow_run:
     workflows: ["Generate Graphs"]
