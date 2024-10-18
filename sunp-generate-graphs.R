@@ -8,6 +8,8 @@ library(lubridate)
 library(dplyr)
 
 #setwd("~/Dropbox/scc_figs/")
+# Gives more time to download files
+options(timeout = 1000)
 
 download.file('https://raw.githubusercontent.com/FLARE-forecast/SUNP-data/sunp-buoy-data/CR6_SUNP_SUNP_buoy_met.csv', 'sunp-met.csv')
 download.file('https://raw.githubusercontent.com/FLARE-forecast/SUNP-data/sunp-buoy-data/CR6_SUNP_SUNP_buoy_wq.csv', 'sunp-wq.csv')
@@ -138,7 +140,7 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
   
   # If the EXO and the temp string is out of the water then the buoy must me in the Harbor so print only the Mid RDO plots
   
-  if(obs5[1000,"wtr_surface"]=="NaN" & obs5[1000, "EXO_wtr_shallow"]=="NaN" & obs5[800, "EXO_wtr_deep"]=="NaN" & obs5[800,"wtr_surface"]=="NaN" & obs5[800, "EXO_wtr_shallow"]=="NaN" & obs5[800, "EXO_wtr_deep"]=="NaN"){
+  if(obs5[950,"wtr_surface"]=="NaN" & obs5[950, "EXO_wtr_shallow"]=="NaN" & obs5[950, "EXO_wtr_deep"]=="NaN" & obs5[500,"wtr_surface"]=="NaN" & obs5[500, "EXO_wtr_shallow"]=="NaN" & obs5[500, "EXO_wtr_deep"]=="NaN"){
 
     plot(obs5$TIMESTAMP,obs5$RECORD, main="Campbell Logger Record", xlab="Time", ylab="Number", type='l')
     plot(obs5$TIMESTAMP,obs5$BattV, main="Campbell Logger Battery", xlab="Time", ylab="Volts", type='l')
