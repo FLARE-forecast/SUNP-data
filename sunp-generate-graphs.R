@@ -80,9 +80,9 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
   plot(obs4$TIMESTAMP,obs4$Outgoing_LW_Avg, main="Longwave Down", xlab="Time", ylab="W/m2",type='l')
   } else{
     print(obs[9834, "Incoming_SW_Avg"])
-    print(obs4[9837, "Outgoing_LW_Avg"]
-    print(obs4[2000, "Incoming_SW_Avg"]
-    print(obs4[2000, "Incoming_SW_Avg"]
+    print(obs4[9837, "Outgoing_LW_Avg"])
+    print(obs4[2000, "Incoming_SW_Avg"])
+    print(obs4[2000, "Incoming_SW_Avg"])
           }
   plot(obs4$TIMESTAMP,obs4$PAR_Den_Avg, main="PAR", xlab="Time", ylab="umol/s/m^2",type='l')
   dev.off() #file made!
