@@ -17,7 +17,7 @@ jobs:
     # Wrap the job in a strategy matrix for retries
     strategy:
       matrix:
-        max-retries: [0, 1, 2]  # Adjust the number of retries as needed
+        max-retries: [0, 1, 2, 3, 4]  # Adjust the number of retries as needed
         
     # Load repo and install R
     steps:
@@ -50,7 +50,7 @@ jobs:
   send-mail:
     needs: generate-graphs
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Send mail
         if: ${{ failure() }}
