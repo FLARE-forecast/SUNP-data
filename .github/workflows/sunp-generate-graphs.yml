@@ -1,6 +1,8 @@
 name: sunp-generate-graphs
 
 # Controls when the action will run.
+runs-on: self-hosted
+
 on:
   schedule:
    - cron: '00 06 * * *'
@@ -12,8 +14,9 @@ on:
 
 jobs: 
   generate-graphs:
-    runs-on: ubuntu-latest
-
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
+    
     # Wrap the job in a strategy matrix for retries
     strategy:
       matrix:
@@ -69,6 +72,7 @@ jobs:
             ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
             The workflow link is https://github.com/FLARE-forecast/SUNP-data/actions/runs/${{ github.run_id }}
           # comma-separated string, send email to
-          to: abreefpilz@vt.edu, vdaneshmand@acis.ufl.edu
+          # to: abreefpilz@vt.edu, vdaneshmand@acis.ufl.edu
+          to: zhuzeh@oregonstate.edu, v.daneshmand@gmail.com, abreefpilz@vt.edu
           # from email name
           from: FLARE
