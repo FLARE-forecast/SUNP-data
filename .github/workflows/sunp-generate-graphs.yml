@@ -1,8 +1,5 @@
 name: sunp-generate-graphs
 
-# Controls when the action will run.
-runs-on: self-hosted
-
 on:
   schedule:
    - cron: '00 06 * * *'
