@@ -73,7 +73,8 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
   plot(obs4$TIMESTAMP, obs4$Rel_WindDir, main="Wind Direction", xlab="Time", ylab="degrees", type="l")
 
   # only print the Net raiodometer plots if the sensors are plugged in. 
-  if(obs4[9834,"Incoming_SW_Avg"]!="NAN" & obs4[9837, "Outgoing_LW_Avg"]!="NAN" & obs4[2000, "Incoming_SW_Avg"]!="NAN" & obs4[2000,"Outgoing_LW_Avg"]!="NAN" ){
+  if((obs4[9837,"Incoming_SW_Avg"] != "NAN" | is.na(obs4[9837,"Incoming_SW_Avg"])) & (obs4[9837, "Outgoing_LW_Avg"]!="NAN" | is.na(obs4[9837,"Outgoing_LW_Avg"])) & 
+     (obs4[2000, "Incoming_SW_Avg"]!="NAN"|is.na(obs4[2000,"Incoming_SW_Avg"])) & (obs4[2000,"Outgoing_LW_Avg"]!="NAN" | is.na(obs4[2000,"Outgoing_LW_Avg"]))){
   plot(obs4$TIMESTAMP,obs4$Incoming_SW_Avg, main="Shortwave Up", xlab="Time", ylab="W/m2",type='l')
   plot(obs4$TIMESTAMP,obs4$Outgoing_SW_Avg, main="Shortwave Down", xlab="Time", ylab="W/m2",type='l')
   plot(obs4$TIMESTAMP,obs4$Incoming_LW_Avg, main="Longwave Up", xlab="Time", ylab="W/m2",type='l')
