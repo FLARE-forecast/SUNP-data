@@ -208,53 +208,55 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
   points(obs5$TIMESTAMP, obs5$dosat_deep, col="darkgray", lwd = 1.5, type="l")
   legend("topleft", c("EXO DO 1m", "DO mid", "EXO DO 8m",  "DO 10m"), text.col = c("medium sea green", "magenta", "black", "darkgray"), x.intersp=0.001)
   
-  # Conductivity
-  plot(obs5$TIMESTAMP,obs5$EXO_Cond_shallow, main="Cond, SpCond and TDS", xlab="Time", ylab="uS/cm", type='l', col="red", lwd=1.5, ylim=c(min(obs5$EXO_Cond_deep, obs5$EXO_SpCond_shallow, na.rm = TRUE) - 1, max(obs5$EXO_Cond_shallow, obs5$EXO_SpCond_deep, na.rm = TRUE) + 55))
-  points(obs5$TIMESTAMP, obs5$EXO_Cond_deep, col="magenta", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$EXO_SpCond_shallow, col="black", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$EXO_SpCond_deep, col="gray", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$EXO_fDOM_QSU_shallow, col="firebrick4", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$EXO_fDOM_QSU_deep, col="darkorange2", type='l', lwd=1.5)
-  legend("topleft", c("Cond 1m","Cond 8m" ,"SpCond 1m", "SpCond 8m", "fDOM 1m", "fDOM 8m"), 
-         text.col=c("red","magenta","black","gray", "firebrick4", "darkorange2"), x.intersp=0.001)
-  
-  
-  #chla
-  plot(obs5$TIMESTAMP,obs5$EXO_Chla_shallow, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5, ylim=c(min(obs5$EXO_Chla_shallow, obs5$EXO_BGAPC_shallow, na.rm = TRUE) -0.5, max(obs5$EXO_Chla_shallow, obs5$EXO_BGAPC_shallow, na.rm = TRUE) + 2))
-  points(obs5$TIMESTAMP, obs5$EXO_BGAPC_shallow, col="blue", type='l', lwd=1.5)
-  
-  legend("topleft", c("Chla 1m", "Phyco 1m"), text.col=c("green", "blue"), x.intersp=0.001)
-  
-  
-  #turbidity
-  plot(obs5$TIMESTAMP,obs5$EXO_Turbidity_NTU, main="Turbidity and TDS", xlab="Time", ylab="ug/L", type='l')
-  points(obs5$TIMESTAMP, obs5$EXO_TDS_shallow, col="orange", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$EXO_TDS_deep, col="darkorange1", type='l', lwd=1.5)
-  legend("topleft", c("Turbidity 8m","TDS 1m" ,"TDS 8m"), 
-         text.col=c("black","orange", "darkorange1"), x.intersp=0.001)
-  
-  # Temperature
-  par(mfrow=c(1,1))
-  par(oma=c(1,1,1,4))
-  plot(obs5$TIMESTAMP,obs5$wtr_surface, main="Water Temp", xlab="Time", ylab="degrees C", type='l', col="firebrick4", lwd=1.5, ylim=c(0, 35))
-  points(obs5$TIMESTAMP, obs5$wtr_1, col="firebrick1", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_2, col="DarkOrange1", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_3, col="gold", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_4, col="greenyellow", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_5, col="medium sea green", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_6, col="sea green", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_7, col="DeepSkyBlue4", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_8, col="blue2", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_9, col="blue4", type='l', lwd=1.5)
-  points(obs5$TIMESTAMP, obs5$wtr_10, col="darkslateblue", type='l', lwd=1.5)
-  par(fig=c(0,1,0,1), oma=c(0,0,0,0), mar=c(0,0,0,0), new=T)
-  plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
-  legend("right",c("0.1m","1m", "2m", "3m", "4m", "5m", "6m", "7m", "8m","9m","10m"),
-         text.col=c("firebrick4", "firebrick1", "DarkOrange1", "gold", "greenyellow", "medium sea green", "sea green",
-                    "DeepSkyBlue4", "blue2", "blue4", "darkslateblue"), 
-         cex=1, y.intersp=1, x.intersp=0.001, inset=c(0,0), xpd=T, bty='n')
-  
-  dev.off() #file made!
-  
-   }
+ # Conductivity
+    plot(obs5$TIMESTAMP,obs5$EXO_Cond_shallow, main="Cond, SpCond and TDS", xlab="Time", ylab="uS/cm", type='l', col="red", lwd=1.5, ylim=c(min(obs5$EXO_fDOM_QSU_deep, obs5$EXO_SpCond_shallow, na.rm = TRUE) - 1, max(obs5$EXO_Cond_shallow, obs5$EXO_SpCond_deep, na.rm = TRUE) + 55))
+    points(obs5$TIMESTAMP, obs5$EXO_Cond_deep, col="magenta", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$EXO_SpCond_shallow, col="black", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$EXO_SpCond_deep, col="gray", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$EXO_fDOM_QSU_shallow, col="firebrick4", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$EXO_fDOM_QSU_deep, col="darkorange2", type='l', lwd=1.5)
+    legend("topleft", c("Cond 1m","Cond 8m" ,"SpCond 1m", "SpCond 8m", "fDOM 1m", "fDOM 8m"), 
+           text.col=c("red","magenta","black","gray", "firebrick4", "darkorange2"), x.intersp=0.001)
+    
+    
+    #chla
+    plot(obs5$TIMESTAMP,obs5$EXO_Chla_shallow, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5, ylim=c(min(obs5$EXO_Chla_shallow, obs5$EXO_BGAPC_shallow, na.rm = TRUE) -0.5, max(obs5$EXO_Chla_shallow, obs5$EXO_BGAPC_shallow, na.rm = TRUE) + 2))
+    points(obs5$TIMESTAMP, obs5$EXO_BGAPC_shallow, col="blue", type='l', lwd=1.5)
+    
+    legend("topleft", c("Chla 1m", "Phyco 1m"), text.col=c("green", "blue"), x.intersp=0.001)
+    
+    
+    #turbidity
+    plot(obs5$TIMESTAMP,obs5$EXO_Turbidity_NTU, main="Turbidity and TDS", xlab="Time", ylab="ug/L", type='l', ylim=c(0, max(obs5$EXO_Turbidity_NTU, na.rm = TRUE)+0.2))
+    points(obs5$TIMESTAMP, obs5$EXO_TDS_shallow, col="orange", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$EXO_TDS_deep, col="darkorange1", type='l', lwd=1.5)
+    legend("topleft", c("Turbidity 8m","TDS 1m" ,"TDS 8m"), 
+           text.col=c("black","orange", "darkorange1"), x.intersp=0.001)
+    
+    # Temperature
+    par(mfrow=c(1,1))
+    par(oma=c(1,1,1,4))
+    plot(obs5$TIMESTAMP,obs5$wtr_surface, main="Water Temp", xlab="Time", ylab="degrees C", type='l', col="firebrick4", lwd=1.5, ylim=c(0, 35))
+    points(obs5$TIMESTAMP, obs5$wtr_1, col="firebrick1", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_2, col="DarkOrange1", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_3, col="gold", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_4, col="greenyellow", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_5, col="medium sea green", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_6, col="sea green", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_7, col="DeepSkyBlue4", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_8, col="blue2", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_9, col="blue4", type='l', lwd=1.5)
+    points(obs5$TIMESTAMP, obs5$wtr_10, col="darkslateblue", type='l', lwd=1.5)
+    par(fig=c(0,1,0,1), oma=c(0,0,0,0), mar=c(0,0,0,0), new=T)
+    plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
+    legend("right",c("0.1m","1m", "2m", "3m", "4m", "5m", "6m", "7m", "8m","9m","10m"),
+           text.col=c("firebrick4", "firebrick1", "DarkOrange1", "gold", "greenyellow", "medium sea green", "sea green",
+                      "DeepSkyBlue4", "blue2", "blue4", "darkslateblue"), 
+           cex=1, y.intersp=1, x.intersp=0.001, inset=c(0,0), xpd=T, bty='n')
+    
+    dev.off() #file made!
+
+    print("Sunapee WQ plots created")
+    
+  }
 }  
