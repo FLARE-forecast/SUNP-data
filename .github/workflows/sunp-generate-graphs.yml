@@ -15,9 +15,9 @@ jobs:
     runs-on: self-hosted
     
     # Wrap the job in a strategy matrix for retries
-    strategy:
-      matrix:
-        max-retries: [0, 1, 2, 3, 4]  # Adjust the number of retries as needed
+    # strategy:
+    #   matrix:
+    #     max-retries: [0, 1, 2, 3, 4]  # Adjust the number of retries as needed
         
     # Load repo and install R
     steps:
@@ -29,12 +29,28 @@ jobs:
 
       - name: Set Up R
         uses: r-lib/actions/setup-r@v2
-      - name: Install packages
+
+      - name: Create ~/rlib directory
+        run: mkdir -p ~/rlib
+
+      - name: Install packages to ~/rlib
         run: |
-          R -e 'install.packages("lubridate")'
-          R -e 'install.packages("dplyr")'
+          Rscript -e '
+            .libPaths("~/rlib")
+            packages <- c("lubridate", "dplyr")
+            install_if_missing <- function(pkg) {
+              if (!require(pkg, character.only = TRUE))
+                install.packages(pkg, lib = "~/rlib", repos = "https://cloud.r-project.org")
+            }
+            invisible(lapply(packages, install_if_missing))
+          '
+        env:
+          R_LIBS: ~/rlib
+
       - name: Run R Script
         run: Rscript sunp-generate-graphs.R
+        env:
+          R_LIBS: ~/rlib
       
       # Commit files ,and push
       - name: Commit files
