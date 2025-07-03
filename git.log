@@ -320311,3 +320311,15 @@ To github.com:FLARE-forecast/SUNP-data.git
 To github.com:FLARE-forecast/SUNP-data.git
    eae0debf1..c6d6eb582  lspa-computer-logs -> lspa-computer-logs
  
+-------------- Wed 07/02/2025 22:34:14.36 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data 087a00c] Daily Push
+ 4 files changed, 99 insertions(+), 1125336 deletions(-)
+ delete mode 100644 CR6_SUNP_SUNP_buoy_met_legacy_2024.csv
+ delete mode 100644 SUNP_buoy_met_legacy_2021_2022.csv
+Already up to date.
+To https://github.com/FLARE-forecast/SUNP-data.git
+   78eee76..087a00c  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
