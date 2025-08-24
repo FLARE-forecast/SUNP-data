@@ -329691,3 +329691,21 @@ Git Logs Backup:
 Already up to date.
 To https://github.com/FLARE-forecast/SUNP-data.git
    0283047..cb0cfef  lspa-computer-log -> lspa-computer-log
+[lspa-computer-log 367e40c] Daily Push
+ 1 file changed, 5 insertions(+)
+To https://github.com/FLARE-forecast/SUNP-data.git
+   cb0cfef..367e40c  lspa-computer-log -> lspa-computer-log
+ 
+-------------- Sun 08/24/2025 12:05:02.03 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data 7813c9a] Daily Push
+ 2 files changed, 198 insertions(+)
+Already up to date.
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 61.23 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/FLARE-forecast/SUNP-data.git
+   25b6be7..7813c9a  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
