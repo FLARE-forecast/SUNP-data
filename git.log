@@ -353053,3 +353053,31 @@ Git Logs Backup:
  1 file changed, 13 insertions(+)
 fatal: unable to access 'https://github.com/FLARE-forecast/SUNP-data.git/': Failed to connect to github.com port 443: Connection refused
 fatal: unable to access 'https://github.com/FLARE-forecast/SUNP-data.git/': Failed to connect to github.com port 443: Connection refused
+[lspa-computer-log 9e69aec] Daily Push
+ 1 file changed, 4 insertions(+)
+fatal: unable to access 'https://github.com/FLARE-forecast/SUNP-data.git/': Failed to connect to github.com port 443: Connection refused
+ 
+-------------- Sat 01/10/2026  0:05:01.58 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data c5bf9f8] Daily Push
+ 2 files changed, 198 insertions(+)
+Already up to date.
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.95 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.92 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.82 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.76 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.89 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.86 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.79 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.72 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.69 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.66 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.63 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 97.98 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/FLARE-forecast/SUNP-data.git
+   50f9a7c..c5bf9f8  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
