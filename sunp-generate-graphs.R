@@ -4,6 +4,7 @@
 # Edits:
 # 14 Oct 24- uncommented out the if statement for when the buoy is in the harbor. 
 # 06 May 26 - updated to have variables at the same depth for the plots. 
+# 03 Jun 26 - added safe_min/safe_max helpers so all-NA columns don't break ylim.- From Claude
 
 library(lubridate)
 library(dplyr)
@@ -14,6 +15,18 @@ options(timeout = 1000)
 
 download.file('https://raw.githubusercontent.com/FLARE-forecast/SUNP-data/sunp-buoy-data/CR6_SUNP_SUNP_buoy_met.csv', 'sunp-met.csv')
 download.file('https://raw.githubusercontent.com/FLARE-forecast/SUNP-data/sunp-buoy-data/CR6_SUNP_SUNP_buoy_wq.csv', 'sunp-wq.csv')
+
+# Helper functions: return min/max of combined columns, or a fallback value when
+# all values are NA (avoids Inf/-Inf being passed to ylim).
+safe_min <- function(..., fallback = 0) {
+  v <- c(...)
+  if (all(is.na(v))) fallback else min(v, na.rm = TRUE)
+}
+
+safe_max <- function(..., fallback = 1) {
+  v <- c(...)
+  if (all(is.na(v))) fallback else max(v, na.rm = TRUE)
+}
 
 #SUNP met data
 
@@ -140,6 +153,7 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
   #colnames(obs5)<-names(sunpwaterdata[index,c(1:41)]) #get column names 
   # }  moved to the end so the graphs are also in the else part of the statement
   
+  
   ### If statement to change plots when plot is in the Harbor or out in the lake#####
   
   pdf(paste0("sunpWaterQualityDataFigures_", Sys.Date(), ".pdf"), width=8.5, height=11) #call PDF file
@@ -185,8 +199,9 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
     points(obs5$TIMESTAMP, obs5$EXO_cablepower_deep, col="red", type = "l", lwd =1.5)
     legend("topleft", c("EXO 1m", "EXO 8m"), text.col = c("black", "red"), x.intersp=0.001)
     
-    plot(obs5$TIMESTAMP,obs5$EXO_depth_deep, main="Depth for Deep EXO", xlab="Time", ylab="Meters", type='l')
-    
+    if(any(!is.na(obs5$EXO_depth_deep))){
+      plot(obs5$TIMESTAMP,obs5$EXO_depth_deep, main="Depth for Deep EXO", xlab="Time", ylab="Meters", type='l')
+    }
     #plot(obs5$TIMESTAMP,obs5$EXO_pressure_deep, main="Sonde Pressure for Deep EXO", xlab="Time", ylab="psi", type='l')
     
     # vector of colors for plots
@@ -194,48 +209,60 @@ if (length(na.omit(sunpwaterdata$TIMESTAMP[sunpwaterdata$TIMESTAMP>start.time1])
     all_col_2 <- c("medium sea green", "black")
     
     # Temperature
-    plot(obs5$TIMESTAMP,obs5$EXO_wtr_shallow, main="Water temp of sondes", xlab="Time", ylab="degrees C", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$EXO_wtr_deep,na.rm = TRUE) - 1, max(obs5$EXO_wtr_shallow,na.rm = TRUE) + 5))
+    plot(obs5$TIMESTAMP,obs5$EXO_wtr_shallow, main="Water temp of sondes", xlab="Time", ylab="degrees C", type='l', col="medium sea green", lwd=1.5,
+         ylim = c(safe_min(obs5$EXO_wtr_deep, fallback = 5) - 1,
+                  safe_max(obs5$EXO_wtr_shallow, fallback = 30) + 5))
     points(obs5$TIMESTAMP, obs5$dotemp_mid, col="magenta", type='l', lwd=1.5)
     points(obs5$TIMESTAMP, obs5$EXO_wtr_deep, col="black", type='l', lwd=1.5)
     points(obs5$TIMESTAMP, obs5$dotemp_deep, col="blue4", type='l', lwd=1.5)
     legend("topleft", c("1m EXO", "5m DO","8m EXO", "10m DO"), text.col = all_col_4, x.intersp=0.001)
     
     # DO Plots
-    plot(obs5$TIMESTAMP,obs5$EXO_doobs_shallow, main="DO", xlab="Time", ylab="mg/L", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$doobs_mid, obs5$doobs_deep, obs5$EXO_doobs_shallow,na.rm = TRUE) - 1, max(obs5$doobs_mid, obs5$doobs_deep, obs5$EXO_doobs_shallow,na.rm = TRUE) + 5))
+    plot(obs5$TIMESTAMP,obs5$EXO_doobs_shallow, main="DO", xlab="Time", ylab="mg/L", type='l', col="medium sea green", lwd=1.5,
+         ylim = c(safe_min(obs5$doobs_mid, obs5$doobs_deep, obs5$EXO_doobs_shallow, fallback = 0) - 1,
+                  safe_max(obs5$doobs_mid, obs5$doobs_deep, obs5$EXO_doobs_shallow, fallback = 15) + 5))
     points(obs5$TIMESTAMP, obs5$doobs_mid, col = "magenta", lwd = 1.5, type = "l")
     points(obs5$TIMESTAMP, obs5$EXO_doobs_deep, col = "black", lwd = 1.5, type = "l")
     points(obs5$TIMESTAMP, obs5$doobs_deep, col="blue4", lwd = 1.5, type="l")
     legend("topleft", c("EXO DO 1m", "DO mid ~5m", "EXO DO 8m",  "DO 10m"), text.col = all_col_4, x.intersp=0.001)
     
-    plot(obs5$TIMESTAMP,obs5$EXO_dosat_shallow, main="DO % saturation", xlab="Time", ylab="% saturation", type='l', col="medium sea green", lwd=1.5, ylim = c(min(obs5$dosat_mid, obs5$dosat_deep,obs5$EXO_dosat_shallow, na.rm = TRUE) - 5, max(obs5$dosat_mid, obs5$dosat_deep, obs5$EXO_dosat_shallow, na.rm = TRUE) + 45))
+    plot(obs5$TIMESTAMP,obs5$EXO_dosat_shallow, main="DO % saturation", xlab="Time", ylab="% saturation", type='l', col="medium sea green", lwd=1.5,
+         ylim = c(safe_min(obs5$dosat_mid, obs5$dosat_deep, obs5$EXO_dosat_shallow, fallback = 0) - 5,
+                  safe_max(obs5$dosat_mid, obs5$dosat_deep, obs5$EXO_dosat_shallow, fallback = 100) + 45))
     points(obs5$TIMESTAMP, obs5$dosat_mid, col = "magenta", lwd = 1.5, type = "l")
     points(obs5$TIMESTAMP, obs5$EXO_dosat_deep, col = "black", lwd = 1.5, type = "l")
     points(obs5$TIMESTAMP, obs5$dosat_deep, col="blue4", lwd = 1.5, type="l")
     legend("topleft", c("EXO DO 1m", "DO mid", "EXO DO 8m",  "DO 10m"), text.col = all_col_4, x.intersp=0.001)
     
     #chla
-    plot(obs5$TIMESTAMP,obs5$EXO_Chla_shallow, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5, ylim=c(min(obs5$EXO_Chla_shallow, obs5$EXO_BGAPC_shallow, na.rm = TRUE) -0.5, max(obs5$EXO_Chla_shallow, obs5$EXO_BGAPC_shallow, na.rm = TRUE) + 2))
+    plot(obs5$TIMESTAMP,obs5$EXO_Chla_shallow, main="Chla, Phyco @ 1.0m", xlab="Time", ylab="ug/L", type='l', col="green", lwd=1.5,
+         ylim=c(safe_min(obs5$EXO_Chla_shallow, obs5$EXO_BGAPC_shallow, fallback = 0) - 0.5,
+                safe_max(obs5$EXO_Chla_shallow, obs5$EXO_BGAPC_shallow, fallback = 10) + 2))
     points(obs5$TIMESTAMP, obs5$EXO_BGAPC_shallow, col="blue", type='l', lwd=1.5)
     
     legend("topleft", c("Chla 1m", "Phyco 1m"), text.col=c("green", "blue"), x.intersp=0.001)
     
     # fdom
-    plot(obs5$TIMESTAMP,obs5$EXO_fDOM_QSU_shallow, main="fdom", xlab="Time", ylab="uS/cm", type='l', col="medium sea green", lwd=1.5, ylim=c(min(obs5$EXO_fDOM_QSU_deep, obs5$EXO_fDOM_QSU_shallow, na.rm = TRUE) - 1, max(obs5$EXO_fDOM_QSU_deep, obs5$EXO_fDOM_QSU_shallow, na.rm = TRUE) + 10))
+    plot(obs5$TIMESTAMP,obs5$EXO_fDOM_QSU_shallow, main="fdom", xlab="Time", ylab="uS/cm", type='l', col="medium sea green", lwd=1.5,
+         ylim=c(safe_min(obs5$EXO_fDOM_QSU_deep, obs5$EXO_fDOM_QSU_shallow, fallback = 0) - 1,
+                safe_max(obs5$EXO_fDOM_QSU_deep, obs5$EXO_fDOM_QSU_shallow, fallback = 10) + 10))
     points(obs5$TIMESTAMP, obs5$EXO_fDOM_QSU_deep, col="black", type='l', lwd=1.5)
     legend("topleft", c("fdom 1m","fDOM 8m"), 
            text.col=all_col_2, x.intersp=0.001)
     
     # sp cond
-    
-    plot(obs5$TIMESTAMP,obs5$EXO_SpCond_shallow, main="SpCond", xlab="Time", ylab="uS/cm", type='l', col="medium sea green", lwd=1.5, ylim=c(min(obs5$EXO_SpCond_shallow, obs5$EXO_SpCond_deep, na.rm = TRUE) - 1, max(obs5$EXO_SpCond_shallow, obs5$EXO_SpCond_deep, na.rm = TRUE) + 20))
+    plot(obs5$TIMESTAMP,obs5$EXO_SpCond_shallow, main="SpCond", xlab="Time", ylab="uS/cm", type='l', col="medium sea green", lwd=1.5,
+         ylim=c(safe_min(obs5$EXO_SpCond_shallow, obs5$EXO_SpCond_deep, fallback = 100) - 1,
+                safe_max(obs5$EXO_SpCond_shallow, obs5$EXO_SpCond_deep, fallback = 150) + 20))
     points(obs5$TIMESTAMP, obs5$EXO_SpCond_deep, col="black", type='l', lwd=1.5)
     legend("topleft", c("SpCond 1m", "SpCond 8m"), 
            text.col=all_col_2, x.intersp=0.001)
-   
+    
     
     
     #turbidity
-    plot(obs5$TIMESTAMP,obs5$EXO_Turbidity_NTU, main="Turbidity", xlab="Time", ylab="ug/L", type='l', ylim=c(0, max(obs5$EXO_Turbidity_NTU, na.rm = TRUE)+0.2))
+    plot(obs5$TIMESTAMP,obs5$EXO_Turbidity_NTU, main="Turbidity", xlab="Time", ylab="ug/L", type='l',
+         ylim=c(0, safe_max(obs5$EXO_Turbidity_NTU, fallback = 1) + 0.2))
     legend("topleft", c("Turbidity 8m"),
            text.col="black", x.intersp=0.001)
     
