@@ -39,7 +39,7 @@ jobs:
         run: |
           Rscript -e '
             .libPaths("~/rlib")
-            packages <- c("lubridate", "dplyr")
+            packages <- c("lubridate", "dplyr", "pacman")
             install_if_missing <- function(pkg) {
               if (!require(pkg, character.only = TRUE))
                 install.packages(pkg, lib = "~/rlib", repos = "https://cloud.r-project.org")
