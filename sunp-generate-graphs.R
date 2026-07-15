@@ -110,7 +110,7 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
     filter(Rel_WS_ms <900)|>
     select(TIMESTAMP,Cor_WindDir,Rel_WS_ms)%>%
     dplyr::rename(date = TIMESTAMP, ws = Rel_WS_ms, wd = Cor_WindDir)
-  pollutionRose(chicago_wind, pollutant="ws") 
+  openair::pollutionRose(chicago_wind, pollutant="ws") 
   
   # daily wind rose plots 
   
@@ -120,7 +120,7 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
     filter(Rel_WS_ms <900)|>
     select(Date,Cor_WindDir,Rel_WS_ms)%>%
     dplyr::rename(date = Date, ws = Rel_WS_ms, wd = Cor_WindDir)
-  pollutionRose(chicago_wind2, pollutant="ws", type = "date") 
+  openair::pollutionRose(chicago_wind2, pollutant="ws", type = "date") 
   dev.off() #file made!
 }
 
