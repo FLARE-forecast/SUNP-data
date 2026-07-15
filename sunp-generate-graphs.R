@@ -7,7 +7,7 @@
 # 03 Jun 26 - added safe_min/safe_max helpers so all-NA columns don't break ylim.- From Claude
 # 15 Jul 26 - added in wind rose plots and the corrected wind direction from the compass
 
-pacman::p_load("lubridate", "dplyr", "openair")
+pacman::p_load("lubridate", "dplyr", "openair", "tidyverse")
 
 
 #setwd("~/Dropbox/scc_figs/")
