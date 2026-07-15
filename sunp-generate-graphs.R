@@ -115,7 +115,7 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
   # daily wind rose plots 
   
   chicago_wind2 <- obs4 |>
-    mutate(Date = as.Date(TIMESTAMP),
+    mutate(Date = lubridate::as_date(TIMESTAMP),
            Cor_WindDir = as.numeric(Cor_WindDir))|>
     filter(Rel_WS_ms <900)|>
     select(Date,Cor_WindDir,Rel_WS_ms)%>%
