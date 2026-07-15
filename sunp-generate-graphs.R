@@ -118,8 +118,8 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
     mutate(Date = as.Date(TIMESTAMP),
            Cor_WindDir = as.numeric(Cor_WindDir))|>
     filter(Rel_WS_ms <900)|>
-    select(TIMESTAMP,Cor_WindDir,Rel_WS_ms)%>%
-    dplyr::rename(date = TIMESTAMP, ws = Rel_WS_ms, wd = Cor_WindDir)
+    select(Date,Cor_WindDir,Rel_WS_ms)%>%
+    dplyr::rename(date = Date, ws = Rel_WS_ms, wd = Cor_WindDir)
   pollutionRose(chicago_wind2, pollutant="ws", type = "date") 
   dev.off() #file made!
 }
