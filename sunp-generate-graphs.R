@@ -5,9 +5,10 @@
 # 14 Oct 24- uncommented out the if statement for when the buoy is in the harbor. 
 # 06 May 26 - updated to have variables at the same depth for the plots. 
 # 03 Jun 26 - added safe_min/safe_max helpers so all-NA columns don't break ylim.- From Claude
+# 15 Jul 26 - added in wind rose plots and the corrected wind direction from the compass
 
-library(lubridate)
-library(dplyr)
+pacman::p_load("lubridate", "dplyr", "openair")
+
 
 #setwd("~/Dropbox/scc_figs/")
 # Gives more time to download files
@@ -84,7 +85,9 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
   plot(obs4$TIMESTAMP,obs4$RH, main="Rel Hum", xlab="Time", ylab="%", type='l')
   plot(obs4$TIMESTAMP, obs4$Press, main="Barometric Pressure", xlab="Time", ylab="mbar", type="l")
   plot(obs4$TIMESTAMP,obs4$Rel_WS_ms_Avg, main="Wind speed", xlab="Time", ylab="m/s",type='l')
-  plot(obs4$TIMESTAMP, obs4$Rel_WindDir, main="Wind Direction", xlab="Time", ylab="degrees", type="l")
+  plot(obs4$TIMESTAMP, obs4$Rel_WindDir, main="Relative Wind Direction", xlab="Time", ylab="degrees", type="l")
+  plot(obs4$TIMESTAMP, obs4$Cor_WindDir, main="Corrected Wind Direction", xlab="Time", ylab="degrees", type="l")
+  
   
   # only print the Net raiodometer plots if the sensors are plugged in. 
   if((obs4[9837,"Incoming_SW_Avg"] != "NAN" | is.na(obs4[9837,"Incoming_SW_Avg"])) & (obs4[9837, "Outgoing_LW_Avg"]!="NAN" | is.na(obs4[9837,"Outgoing_LW_Avg"])) & 
@@ -100,6 +103,24 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
     print(obs4[2000, "Incoming_SW_Avg"])
   }
   plot(obs4$TIMESTAMP,obs4$PAR_Den_Avg, main="PAR", xlab="Time", ylab="umol/s/m^2",type='l')
+  
+  # wind rose plot over the last 7 days
+  chicago_wind <- obs4%>%
+    mutate(Cor_WindDir = as.numeric(Cor_WindDir))|>
+    filter(Rel_WS_ms <900)|>
+    select(TIMESTAMP,Cor_WindDir,Rel_WS_ms)%>%
+    dplyr::rename(date = TIMESTAMP, ws = Rel_WS_ms, wd = Cor_WindDir)
+  pollutionRose(chicago_wind, pollutant="ws") 
+  
+  # daily wind rose plots 
+  
+  chicago_wind2 <- obs4 |>
+    mutate(Date = as.Date(TIMESTAMP),
+           Cor_WindDir = as.numeric(Cor_WindDir))|>
+    filter(Rel_WS_ms <900)|>
+    select(TIMESTAMP,Cor_WindDir,Rel_WS_ms)%>%
+    dplyr::rename(date = TIMESTAMP, ws = Rel_WS_ms, wd = Cor_WindDir)
+  pollutionRose(chicago_wind2, pollutant="ws", type = "date") 
   dev.off() #file made!
 }
 
