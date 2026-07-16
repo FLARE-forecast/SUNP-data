@@ -1,3 +1,5 @@
+#install.packages("pacman")
+
 # Plotting scripts for SUNP Buoy Figures
 # Author: Vahid, Whitney Woelmer, and Adrienne Breef-Pilz
 
@@ -84,9 +86,12 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
   plot(obs4$TIMESTAMP,obs4$AirTC, main="Air Temp", xlab="Time", ylab="degrees C", type='l')
   plot(obs4$TIMESTAMP,obs4$RH, main="Rel Hum", xlab="Time", ylab="%", type='l')
   plot(obs4$TIMESTAMP, obs4$Press, main="Barometric Pressure", xlab="Time", ylab="mbar", type="l")
-  plot(obs4$TIMESTAMP,obs4$Rel_WS_ms_Avg, main="Wind speed", xlab="Time", ylab="m/s",type='l')
+  plot(obs4$TIMESTAMP,obs4$Rel_WS_ms_Avg, main="Relative Wind speed", xlab="Time", ylab="m/s",type='l')
+  plot(obs4$TIMESTAMP,obs4$mean_wind_speed_vector, main="Vector Average Wind speed", xlab="Time", ylab="m/s",type='l')
+  
   plot(obs4$TIMESTAMP, obs4$Rel_WindDir, main="Relative Wind Direction", xlab="Time", ylab="degrees", type="l")
   plot(obs4$TIMESTAMP, obs4$Cor_WindDir, main="Corrected Wind Direction", xlab="Time", ylab="degrees", type="l")
+  plot(obs4$TIMESTAMP, obs4$mean_wind_direction_vector, main="Vector Average Wind Direction", xlab="Time", ylab="degrees", type="l")
   
   
   # only print the Net raiodometer plots if the sensors are plugged in. 
@@ -106,21 +111,22 @@ if (length(na.omit(sunpmetdata$TIMESTAMP[sunpmetdata$TIMESTAMP>start.time]))==0)
   
   # wind rose plot over the last 7 days
   chicago_wind <- obs4%>%
-    mutate(Cor_WindDir = as.numeric(Cor_WindDir))|>
+    mutate(Cor_WindDir = as.numeric(mean_wind_direction_vector))|>
     filter(Rel_WS_ms <900)|>
-    select(TIMESTAMP,Cor_WindDir,Rel_WS_ms)%>%
-    dplyr::rename(date = TIMESTAMP, ws = Rel_WS_ms, wd = Cor_WindDir)
+    select(TIMESTAMP,Cor_WindDir,mean_wind_speed_vector)%>%
+    dplyr::rename(date = TIMESTAMP, ws = mean_wind_speed_vector, wd = Cor_WindDir)
   openair::pollutionRose(chicago_wind, pollutant="ws") 
   
   # daily wind rose plots 
   
   chicago_wind2 <- obs4 |>
-    mutate(Date = lubridate::as_date(TIMESTAMP),
-           Cor_WindDir = as.numeric(Cor_WindDir))|>
+    mutate(Date = as.Date(TIMESTAMP),
+           ddate = as.Date(TIMESTAMP),
+           Cor_WindDir = as.numeric(mean_wind_direction_vector))|>
     filter(Rel_WS_ms <900)|>
-    select(Date,Cor_WindDir,Rel_WS_ms)%>%
-    dplyr::rename(date = Date, ws = Rel_WS_ms, wd = Cor_WindDir)
-  openair::pollutionRose(chicago_wind2, pollutant="ws", type = "date") 
+    select(Date,Cor_WindDir,mean_wind_speed_vector, ddate)|>
+    dplyr::rename(date = Date, ws = mean_wind_speed_vector, wd = Cor_WindDir)
+  openair::pollutionRose(chicago_wind2, pollutant ="ws",type = "ddate") 
   dev.off() #file made!
 }
 
