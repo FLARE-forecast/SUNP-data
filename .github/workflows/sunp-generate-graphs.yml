@@ -2,7 +2,7 @@ name: sunp-generate-graphs
 
 on:
   schedule:
-   - cron: '00 06 * * *'
+   - cron: '10 05 * * *'
   workflow_dispatch:
   workflow_run:
     workflows: ["Generate Graphs"]
