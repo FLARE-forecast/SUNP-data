@@ -437536,3 +437536,21 @@ Git Logs Backup:
 Already up to date.
 To https://github.com/FLARE-forecast/SUNP-data.git
    43a7f6d4..0c613322  lspa-computer-log -> lspa-computer-log
+[lspa-computer-log 8f073f1c] Daily Push
+ 1 file changed, 5 insertions(+)
+To https://github.com/FLARE-forecast/SUNP-data.git
+   0c613322..8f073f1c  lspa-computer-log -> lspa-computer-log
+ 
+-------------- Mon 10/26/2026 19:05:02.87 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data 152d0db8] Daily Push
+ 2 files changed, 66 insertions(+)
+fatal: unable to access 'https://github.com/FLARE-forecast/SUNP-data.git/': OpenSSL SSL_read: Connection was reset, errno 10054
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 78.97 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/FLARE-forecast/SUNP-data.git
+   d57ba1d7..152d0db8  sunp-buoy-data -> sunp-buoy-data
+ 
+Git Logs Backup: 
