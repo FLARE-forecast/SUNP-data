@@ -442225,3 +442225,27 @@ remote: fatal error in commit_refs
 To https://github.com/FLARE-forecast/SUNP-data.git
  ! [remote rejected]   lspa-computer-log -> lspa-computer-log (failure)
 error: failed to push some refs to 'https://github.com/FLARE-forecast/SUNP-data.git'
+[lspa-computer-log 36ab8fd8] Daily Push
+ 1 file changed, 7 insertions(+)
+remote: fatal error in commit_refs        
+To https://github.com/FLARE-forecast/SUNP-data.git
+ ! [remote rejected]   lspa-computer-log -> lspa-computer-log (failure)
+error: failed to push some refs to 'https://github.com/FLARE-forecast/SUNP-data.git'
+ 
+-------------- Wed 11/04/2026  6:05:01.99 --------------  
+ 
+Git Data Backup: 
+[sunp-buoy-data f56b69a4] Daily Push
+ 2 files changed, 66 insertions(+)
+Already up to date.
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File CR6_SUNP_SUNP_buoy_met.csv is 81.23 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+remote: Internal Server Error
+remote: Request ID E8AF:D558:5746B9:7F763C:6AEB1161        
+remote: Time 2026-11-04T11:05:12Z
+To https://github.com/FLARE-forecast/SUNP-data.git
+ ! [remote rejected]   sunp-buoy-data -> sunp-buoy-data (Internal Server Error)
+error: failed to push some refs to 'https://github.com/FLARE-forecast/SUNP-data.git'
+ 
+Git Logs Backup: 
